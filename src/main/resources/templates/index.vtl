@@ -1,0 +1,15 @@
+<h1>Available Stylists:</h1>
+#if($stylists.size() > 0)
+ <ul>
+   #foreach ($stylist in $stylists)
+   <li><a href="/stylists/$stylist.getId()/clients">$stylist.getName()</a></li>
+#end
+ </ul>
+ #else
+   <h2>You have'nt entered any stylists, Please enter Stylist Name:</h2>
+  #end
+
+  <h1><a href="/stylists">Add Stylist</a></h1>
+  <h1><a href="/clientslist">All Clients</a></h1>
+
+  
