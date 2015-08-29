@@ -1,0 +1,12 @@
+<h1>Available Clients:</h1>
+#if($clients.size() > 0)
+ <ul>
+   #foreach ($client in $clients)
+   <h1><li>$client.getName() &nbsp    <a href="/clients/$client.getId()/edit">Edit</a>
+
+   &nbsp <a href="/clients/$client.getId()/delete">delete</a></li></h1>
+#end
+ </ul>
+ #else
+   <h2>You have'nt entered any clients, Please enter client Name:</h2>
+  #end
