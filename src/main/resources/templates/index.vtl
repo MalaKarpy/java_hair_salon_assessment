@@ -1,4 +1,5 @@
-<h1>Available Stylists:</h1>
+<h1>Welcome To Hair Salon</h1>
+<h2>Available Stylists:</h2>
 #if($stylists.size() > 0)
  <ul>
    #foreach ($stylist in $stylists)
@@ -6,10 +7,8 @@
 #end
  </ul>
  #else
-   <h2>You have'nt entered any stylists, Please enter Stylist Name:</h2>
+   <h3>You have'nt entered any stylists, Please enter Stylist Name:</h3>
   #end
 
-  <h1><a href="/stylists">Add Stylist</a></h1>
-  <h1><a href="/clientslist">All Clients</a></h1>
-
-  
+  <h4><a href="/stylists">Add A Stylist</a></h4>
+  <h4><a href="/clientslist">View All Clients</a></h4>

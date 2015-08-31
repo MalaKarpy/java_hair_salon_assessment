@@ -69,14 +69,39 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/clients/:id/edit", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
 
+      Client client = Client.find(Integer.parseInt(request.params(":id")));
 
+      model.put("client", client);
+      model.put("template", "templates/clients-edit-form.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
+    post("/clients/:id/edit", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
 
+      Client client = Client.find(Integer.parseInt(request.params(":id")));
+      String new_client_name = request.queryParams("new_client_name");
+      client.updateName(new_client_name);
 
+      model.put("clients",Client.all());
+      model.put("client", client);
+      model.put("template", "templates/clients-list.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
+    get("/clients/:id/delete", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
 
+      Client client = Client.find(Integer.parseInt(request.params(":id")));
+      client.delete();
 
+      model.put("clients",Client.all());
+      model.put("template", "templates/clients-list.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
 }
 }

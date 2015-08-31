@@ -2,11 +2,11 @@
 #if($clients.size() > 0)
  <ul>
    #foreach ($client in $clients)
-   <h1><li>$client.getName() &nbsp    <a href="/clients/$client.getId()/edit">Edit</a>
+   <h3><li>$client.getName() &nbsp    <a href="/clients/$client.getId()/edit">Edit</a>
 
-   &nbsp <a href="/clients/$client.getId()/delete">delete</a></li></h1>
+   &nbsp <a href="/clients/$client.getId()/delete">Delete</a></li></h3>
 #end
  </ul>
  #else
-   <h2>You have'nt entered any clients, Please enter client Name:</h2>
+   <h4>You have'nt entered any clients, Please enter client Name:</h4>
   #end
